@@ -2,10 +2,10 @@
 import axios from 'axios';
 
 // 🖥️ Usa variable de entorno (Railway) o localhost (desarrollo)
-const API_URL =
-  import.meta.env.VITE_API_URL
-    ? `${import.meta.env.VITE_API_URL}/simulaciones`
-    : "http://localhost:3001/api/simulaciones"; // Base para el módulo de teoría
+const API_URL = import.meta.env.VITE_API_URL
+  ? `${import.meta.env.VITE_API_URL}/modulo-teoria`
+  : "http://localhost:3001/api/modulo-teoria";
+
 
 class ApiTeoriaService {
   constructor() {
