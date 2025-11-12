@@ -1,0 +1,281 @@
+/* 🌆 Contenedor principal */
+.ciudad-contenedor {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #0a0a1a 0%, #1a0a2e 50%, #0f1419 100%);
+  color: white;
+  text-align: center;
+}
+
+/* 🎨 Fondo animado o dinámico */
+.ciudad-fondo {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: filter 1s ease, background-image 1s ease;
+}
+
+/* 🎯 Título y encabezado */
+.titulo-ciudad {
+  position: relative;
+  z-index: 10;
+  margin: 0;
+  padding: 15px 20px 5px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 
+               0 0 20px rgba(100, 200, 255, 0.5);
+  background: linear-gradient(135deg, #ffffff 0%, #a8e6ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitulo-ciudad {
+  position: relative;
+  z-index: 10;
+  margin: 0 0 10px;
+  padding: 0 20px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* ⚡ Barra de progreso */
+.barra-progreso {
+  position: relative;
+  z-index: 10;
+  margin: 10px auto;
+  width: 85%;
+  max-width: 600px;
+  height: 25px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5),
+              inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.progreso {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #4a90e2 0%,
+    #50e3c2 35%,
+    #f5a623 70%,
+    #e94e77 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+  border-radius: 13px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 20px rgba(100, 200, 255, 0.5),
+              inset 0 2px 10px rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+.progreso::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: scan 2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+@keyframes scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.porcentaje {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 1rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  color: white;
+  pointer-events: none;
+}
+
+/* 🎮 Grid de niveles */
+.niveles-grid {
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px 20px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 🧩 Tarjeta de nivel */
+.nivel-card {
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  width: 150px;
+  min-height: 160px;
+  padding: 12px;
+  color: white;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.nivel-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  background: rgba(30, 30, 50, 0.8);
+  border-color: rgba(100, 200, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(100, 200, 255, 0.3);
+}
+
+.nivel-card.completado {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.2));
+  border-color: #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4),
+              0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.nivel-card.bloqueado {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(100%);
+}
+
+.nivel-numero {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  background: linear-gradient(135deg, #64c8ff, #9675ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 🎮 Botones */
+.btn-jugar {
+  margin-top: 8px;
+  padding: 8px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  z-index: 9999 !important;
+  pointer-events: all !important;
+  position: relative !important;
+}
+
+.btn-jugar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+/* 🛠 Evita que el canvas bloquee clics */
+canvas,
+.ciudad-canvas {
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* 💥 Ciudad completa al 100% */
+.ciudad-contenedor.completa .titulo-ciudad {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8),
+               0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .titulo-ciudad {
+    font-size: 1.8rem;
+    padding: 20px 15px 8px;
+  }
+
+  .subtitulo-ciudad {
+    font-size: 0.95rem;
+    padding: 0 15px;
+  }
+
+  .barra-progreso {
+    width: 90%;
+    height: 25px;
+  }
+
+  .niveles-grid {
+    gap: 15px;
+    padding: 20px 15px 40px;
+  }
+
+  .nivel-card {
+    width: 140px;
+    min-height: 160px;
+    padding: 12px;
+  }
+
+  .nivel-numero {
+    font-size: 2rem;
+  }
+}
+/* ✨ Mensaje de ciudad restaurada */
+.mensaje-ciudad-restaurada {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #ffe97f;
+  text-shadow: 0 0 15px rgba(255, 255, 150, 0.8), 0 0 30px rgba(255, 255, 200, 0.6);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 25px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  animation: flotarRestauracion 3s ease-in-out infinite alternate;
+  z-index: 50;
+}
+
+@keyframes flotarRestauracion {
+  0% {
+    transform: translate(-50%, 0);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-50%, -10px);
+    opacity: 1;
+  }
+}
