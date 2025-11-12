@@ -4,7 +4,7 @@ import { Paper, Typography, Box } from "@mui/material";
 
 // Componentes principales
 import InicioElectroSimu from "./classes/Inicio/inicio.jsx";
-import CiudadWithNavigate from "./classes/Juego/ciudad.jsx";
+import CiudadWithNavigate from "./classes/Juego/Ciudad.jsx";
 
 import Perfil from "./classes/Gestion/perfil.jsx";
 import Teoria from "./classes/Teoria/Teoria.jsx";
